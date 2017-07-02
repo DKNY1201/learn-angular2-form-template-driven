@@ -13,6 +13,15 @@ export class AppComponent {
   answer = '';
   genders = ['male', 'female'];
 
+  submitted = false;
+  inputtedData = {
+    username: '',
+    email: '',
+    secretQuestion: '',
+    secretAnswer: '',
+    gender: ''
+  }
+
   suggestUserName() {
     const suggestedName = 'Superuser';
     // this.signupForm.setValue({
@@ -37,6 +46,19 @@ export class AppComponent {
   // }
 
   onSubmit() {
-    console.log(this.signupForm);
+    this.submitted = true;
+    this.inputtedData = {
+      username: this.signupForm.value.userData.username,
+      email: this.signupForm.value.userData.email,
+      secretQuestion: this.signupForm.value.secret,
+      secretAnswer: this.signupForm.value.questionAnswer,
+      gender: this.signupForm.value.gender
+    };
+
+    this.signupForm.reset({
+      userData: {
+        username: 'Quy Tran'
+      }
+    });
   }
 }
