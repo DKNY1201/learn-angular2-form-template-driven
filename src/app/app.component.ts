@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {NgForm} from "@angular/forms";
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +15,21 @@ export class AppComponent {
 
   suggestUserName() {
     const suggestedName = 'Superuser';
+    // this.signupForm.setValue({
+    //   userData: {
+    //     username: suggestedName,
+    //     email: 'quytran288@gmail.com'
+    //   },
+    //   secret: 'pet',
+    //   questionAnswer: 'Milu (a dog)',
+    //   gender: 'male'
+    // });
+
+    this.signupForm.form.patchValue({
+      userData: {
+        username: suggestedName
+      }
+    });
   }
 
   // onSubmit(form: NgForm) {
